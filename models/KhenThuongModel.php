@@ -8,7 +8,7 @@ class KhenThuongModel {
 
     /* ================== LẤY DANH SÁCH ================== */
     public function getAll($keyword = '', $loai = '', $thang = '') {
-
+    // CHÚ THÍCH THỬ NGHIỆM: Đang thực hiện câu lệnh SQL JOIN 3 bảng để lấy thông tin khen thưởng kỷ luật
     $sql = "SELECT 
                 kt.MaKTKL,
                 kt.MaNV,
@@ -71,7 +71,7 @@ class KhenThuongModel {
 }
     /* ================== THÊM ================== */
     public function insert($data) {
-
+        // CHÚ THÍCH THỬ NGHIỆM: Hàm này dùng để lưu quyết định khen thưởng/kỷ luật mới vào DB
         $sql = "INSERT INTO khenthuongkyluat
                 (MaNV, MaLoai, NgayQuyetDinh, HinhThuc, SoTien, LyDo, GhiChu)
                 VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -172,7 +172,7 @@ class KhenThuongModel {
              ORDER BY Loai, TenLoai");
     }
     public function getTongTien($keyword = '', $loai = '', $thang = '') {
-
+    // CHÚ THÍCH THỬ NGHIỆM: Hàm dùng để tính tổng số tiền đã thưởng và phạt để làm báo cáo
     $sql = "SELECT 
                 SUM(CASE WHEN l.Loai = 'Khen thưởng' THEN kt.SoTien ELSE 0 END) AS TongThuong,
                 SUM(CASE WHEN l.Loai = 'Kỷ luật' THEN kt.SoTien ELSE 0 END) AS TongPhat
