@@ -217,6 +217,7 @@ class KhenThuongModel {
     mysqli_stmt_close($stmt);
 
     return $data;
+    //Nguyễn Thanh Bình sờ tu bít
 }
 }
 ?>
